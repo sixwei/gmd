@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{../asserts/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{../asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+
+<div th:insert="~{commons/vendorbar::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:insert="~{commons/vendorbar::sidebar}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>产品添加</h2>
+            <div class="table-responsive">
+                <form th:action="@{/vendor/addproduct}" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputBrand">产品名</label>
+                        <input name="pname" type="text" class="form-control" id="exampleInputBrand" required="" placeholder="产品名">
+                    </div>
+
+                    <div class="form-group">
+                        <label >品牌名</label>
+                        <select class="form-control" name="bid">
+                            <option th:each="band:${brand}" th:value="${band.bid}" th:text="${band.bname}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">价格</label>
+                        <input name="price" type="text"  class="form-control" id="exampleInputPassword1" placeholder="价格" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPhone">描述</label>
+                        <input name="pdescribe" type="text" class="form-control" id="exampleInputPhone" required="" placeholder="描述">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputTotal">总量</label>
+                        <input name="total" type="text" class="form-control" id="exampleInputTotal" required="" placeholder="总量">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">提交</button>
+
+                </form>
+
+
+            </div>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{../asserts/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{../asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+
+<div th:insert="~{commons/sellebar::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:insert="~{commons/sellebar::sidebar}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>Section title</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>卖家</th>
+                        <th>商品名</th>
+                        <th>价格</th>
+                        <th>描述</th>
+                        <th>总量</th>
+                        <th>已出售</th>
+                        <th>剩余</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="pro:${pros}">
+                        <th th:text="${pro.pid}"></th>
+                        <th th:text="${pro.bname}"></th>
+                        <th th:text="${pro.pname}"></th>
+                        <th th:text="${pro.price}"></th>
+                        <th th:text="${pro.pdescribe}"></th>
+                        <th th:text="${pro.total}"></th>
+                        <th th:text="${pro.sellnumber}"></th>
+                        <th th:text="${pro.residue}"></th>
+                        <th>
+                            <a class="btn btn-sm btn-primary" href="/seller/" th:href="@{/seller/}+${pro.pid}">编辑</a>
+                            <a class="btn btn-sm btn-danger">下架</a>
+                            <a class="btn btn-sm btn-primary" href="/seller/buy/" th:href="@{/seller/buy}+${pro.pid}">进货</a>
+                        </th>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

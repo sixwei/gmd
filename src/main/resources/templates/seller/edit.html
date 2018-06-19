@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{../asserts/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{../asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+
+<div th:insert="~{commons/sellebar::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:insert="~{commons/sellebar::sidebar}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>Section title</h2>
+            <div class="table-responsive">
+                <form>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">商品ID</label>
+                        <div class="col-sm-10">
+                            <label th:text="${product.pid}"></label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">品牌名</label>
+                        <div class="col-sm-10">
+                            <label th:text="${product.bname}"></label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">商品名</label>
+                        <div class="col-sm-10">
+                            <label th:text="${product.pname}"></label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">单价</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="price" th:value="${product.price}"  placeholder="单价">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">商品描述</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="pdescribe" th:value="${product.pdescribe}"  placeholder="单价">
+                        </div>
+                    </div>
+                </form>
+
+                    <div class="form-control">
+                        <label th:text="${product.pid}"></label>
+                        <label th:text="${product.bname}"></label>
+                        <label th:text="${product.pname}"></label>
+                        <input name="price" th:value="${product.price}">
+                        <input name="pdescribe" th:value="${product.pdescribe}">
+
+                    </div>
+            </div>
+        </main>
+
+    </div>
+</div>
+
+</body>
+</html>

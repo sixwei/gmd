@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{../asserts/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{../asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+
+<div th:insert="~{commons/sellebar::topbar}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:insert="~{commons/sellebar::sidebar}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>地址确认支付</h2>
+            <div class="table-responsive">
+                <h3>地址信息</h3>
+                <div class="form-group">
+                    <label>用户名:</label><label th:text="${address.othername}"></label>
+                </div>
+                <div class="form-group">
+                    <label>详细地址:</label><label th:text="${address.address}"></label>
+                </div>
+                <div class="form-group">
+                    <label>电话:</label><label th:text="${address.phone}"></label>
+                </div>
+
+                <div class="form-group">
+                    <a class="btn btn-sm" href="/seller/toaddress">修改地址</a>
+                </div>
+
+                <hr>
+
+
+
+                <a class="btn btn-sm btn-primary" href="/seller/success" th:href="@{/seller/success}">确认支付</a>
+
+
+
+
+            </div>
+        </main>
+
+    </div>
+</div>
+
+</body>
+</html>

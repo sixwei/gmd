@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/asserts/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    <form class="form-signin" th:action="@{/user/register}" method="post">
+
+        <p style="color: red" th:text="${success}" th:if="${not #strings.isEmpty(success)}"></p>
+        <div >
+            <label class="left">权限</label>
+            <select name="rid" class="custom-select">
+                <option value="1">管理员</option>
+                <option value="2">借卖方</option>
+                <option value="3">品牌商</option>
+            </select><br>
+            <label>用户名</label>
+            <input name="username" type="text" class="form-control" placeholder="用户名" required="" autofocus="autofocus" />
+
+            <label>密码</label>
+            <input name="password" type="password" class="form-control" placeholder="密码" required="">
+            <label>email</label>
+            <input name="email" type="text" class="form-control" placeholder="name@example.com" required="">
+            <label>电话</label>
+            <input name="phone" type="text" class="form-control" placeholder="电话" required="">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>
